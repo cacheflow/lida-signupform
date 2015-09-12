@@ -1,0 +1,13 @@
+<% if current_user %>
+  <div class="container">
+  <div class="jumbotron">
+    <h1>ToDo</h1>
+    <p>Hello <%= current_user.email%> you can change
+      your configuration settings here
+      <%= link_to "My profile", edit_user_registration_path(current_user) %> 
+  </p>
+  </div>
+<% else %>
+<%= render template: "layouts/unregistered" %>
+  <%= link_to "Login", new_user_session_path %>
+<% end %>
